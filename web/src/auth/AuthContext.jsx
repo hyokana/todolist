@@ -25,14 +25,11 @@ export function AuthProvider({ children }) {
   const navigate = useNavigate()
 
   const login = useCallback((data) => {
-    console.log(data);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
     setAuth(data)
   }, [])
 
   const logout = useCallback(() => {
-    // set logout api
-
     localStorage.removeItem(STORAGE_KEY)
     setAuth(null)
     navigate('/login', { replace: true })
